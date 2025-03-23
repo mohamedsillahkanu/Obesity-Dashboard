@@ -1,44 +1,4 @@
-<li>Implement regular screening for obesity and associated risk factors, with increased frequency for high-risk populations.</li>
-                                <li>Focus on long-term weight maintenance strategies after successful weight loss, incorporating ongoing support, monitoring, and adaptive interventions.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-indigo-800 mb-2">Public Health Recommendations</h3>
-                            <ul class="list-disc ml-5 space-y-2">
-                                <li>Develop targeted interventions for high-risk geographic regions identified through spatial analysis of obesity prevalence.</li>
-                                <li>Implement policy measures to improve food environments, particularly in areas with limited access to healthy food options and high density of fast food establishments.</li>
-                                <li>Create initiatives to enhance built environment characteristics associated with lower obesity rates, including improved walkability, access to recreational facilities, and public transportation.</li>
-                                <li>Develop culturally appropriate obesity prevention programs targeting high-risk demographic groups, with particular focus on early intervention for children and adolescents.</li>
-                                <li>Implement workplace wellness programs that incorporate evidence-based strategies for weight management and healthy lifestyle promotion.</li>
-                                <li>Advocate for healthcare policy changes to improve insurance coverage for comprehensive obesity treatment programs, including behavioral therapy and nutritional counseling.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- References Section -->
-            <div class="card mt-6">
-                <div class="card-header">References</div>
-                <div class="p-4">
-                    <ol class="list-decimal ml-5 space-y-2 text-sm">
-                        <li>Centers for Disease Control and Prevention. (2022). Adult Obesity Facts. Retrieved from https://www.cdc.gov/obesity/data/adult.html</li>
-                        <li>World Health Organization. (2021). Obesity and overweight. Retrieved from https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight</li>
-                        <li>Hales, C. M., Carroll, M. D., Fryar, C. D., & Ogden, C. L. (2020). Prevalence of obesity and severe obesity among adults: United States, 2017–2018. NCHS Data Brief, 360, 1-8.</li>
-                        <li>Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 785-794).</li>
-                        <li>Jensen, M. D., et al. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and The Obesity Society. Circulation, 129(25 Suppl 2), S102-S138.</li>
-                        <li>Wadden, T. A., & Bray, G. A. (Eds.). (2019). Handbook of Obesity Treatment (2nd ed.). The Guilford Press.</li>
-                        <li>Wing, R. R., & Phelan, S. (2005). Long-term weight loss maintenance. The American Journal of Clinical Nutrition, 82(1), 222S-225S.</li>
-                        <li>Cawley, J., & Meyerhoefer, C. (2012). The medical care costs of obesity: an instrumental variables approach. Journal of Health Economics, 31(1), 219-230.</li>
-                        <li>Khera, A. V., et al. (2019). Polygenic prediction of weight and obesity trajectories from birth to adulthood. Cell, 177(3), 587-596.e9.</li>
-                        <li>Diabetes Prevention Program Research Group. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England Journal of Medicine, 346(6), 393-403.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
+<script>
         // Data for visualizations
         
         // Obesity Trends Data
@@ -691,12 +651,7 @@
                     .style('opacity', 0.9);
                     
                 tooltip.html(`${actualLabel}<br>${predLabel}<br>Count: ${d}`)
-                    .style('left', (event.pageX + 10) + 'px')
-                    .style('top', (event.pageY - 28) + 'px');
-            })
-            .on('mouseout', function() {
-                d3.select(this)
-                    .attr('stroke', '#fff<!DOCTYPE html>
+                    .style('left', (event.pageX + 10) + <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -735,6 +690,23 @@
             color: #5a67d8;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 10px;
+        }
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            color: #4a5568;
+            text-align: center;
+            position: relative;
+        }
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
         .metric-card {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -775,53 +747,6 @@
             margin-right: 5px;
             border-radius: 2px;
         }
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .data-table th, .data-table td {
-            padding: 8px 12px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .data-table th {
-            background-color: #edf2f7;
-            font-weight: 600;
-        }
-        .data-table tr:hover {
-            background-color: #f7fafc;
-        }
-        .progress-bar {
-            height: 8px;
-            background-color: #e2e8f0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            border-radius: 4px;
-        }
-        .tab-container {
-            display: flex;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 15px;
-        }
-        .tab {
-            padding: 8px 16px;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-        .tab.active {
-            border-bottom: 2px solid #667eea;
-            color: #667eea;
-            font-weight: 600;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
         .feature-bar {
             display: flex;
             align-items: center;
@@ -842,61 +767,6 @@
             margin-left: 10px;
             font-size: 0.85rem;
             font-weight: 600;
-        }
-        .radar-chart-container {
-            width: 100%;
-            height: 400px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #667eea;
-            color: white;
-            border-radius: 4px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .btn:hover {
-            background-color: #5a67d8;
-        }
-        .model-comparison {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .model-card {
-            width: 18%;
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .model-name {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #5a67d8;
-        }
-        .model-metric {
-            margin: 5px 0;
-        }
-        .heatmap-container {
-            width: 100%;
-            height: 300px;
-            position: relative;
-        }
-        .tooltip {
-            position: absolute;
-            padding: 8px 12px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            border-radius: 4px;
-            font-size: 12px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
         }
         .bmi-category {
             display: flex;
@@ -973,38 +843,79 @@
             color: #5a67d8;
             font-weight: bold;
         }
-        .badge {
-            display: inline-block;
-            padding: 0.25em 0.4em;
-            font-size: 75%;
-            font-weight: 700;
-            line-height: 1;
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 2px solid #667eea;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .model-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .model-card {
+            width: 18%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: 0.25rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
         }
-        .badge-primary {
-            color: #fff;
-            background-color: #667eea;
+        .model-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #5a67d8;
         }
-        .badge-secondary {
-            color: #fff;
-            background-color: #718096;
+        .model-metric {
+            margin: 5px 0;
         }
-        .badge-success {
-            color: #fff;
-            background-color: #38a169;
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
         }
-        .badge-danger {
-            color: #fff;
-            background-color: #e53e3e;
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
         }
-        .badge-warning {
-            color: #744210;
-            background-color: #faf089;
+        .tooltip {
+            position: absolute;
+            padding: 8px 12px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .region-map {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+        .heatmap-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
         }
         .trend-arrow {
             font-size: 1.5rem;
@@ -1016,15 +927,23 @@
         .trend-down {
             color: #38a169;
         }
-        .region-map {
-            width: 100%;
-            height: 300px;
-            position: relative;
+        .references-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .references-header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4a5568;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
+        <!-- Title and Project Objective - FIRST SECTION -->
         <header class="mb-8 text-center">
             <h1 class="text-4xl font-bold text-indigo-900 mb-2">Obesity Analysis Dashboard</h1>
             <p class="text-lg text-gray-600 mb-2">Comprehensive analysis of obesity trends, risk factors, and intervention strategies</p>
@@ -1059,6 +978,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- MAIN ANALYSIS SECTION -->
+        <h2 class="section-header">Obesity Analysis & Insights</h2>
 
         <!-- Main Dashboard Content -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1241,7 +1163,11 @@
                 <div class="card-header">Environmental Factors</div>
                 <div id="environmentalFactors"></div>
             </div>
+        </div>
 
+        <!-- MODEL PERFORMANCE SECTION -->
+        <h2 class="section-header">Predictive Modeling Results</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Model Performance Section -->
             <div class="card col-span-3">
                 <div class="card-header">Model Performance Comparison</div>
@@ -1311,47 +1237,87 @@
             </div>
         </div>
         
-        <!-- Findings, Conclusion, Recommendations & References -->
-        <div class="mt-12">
-            <!-- Key Findings Section -->
+        <!-- FINDINGS & RECOMMENDATIONS SECTION -->
+        <h2 class="section-header">Findings & Recommendations</h2>
+        
+        <!-- Key Findings Section -->
+        <div class="card">
+            <div class="card-header">Key Findings</div>
+            <div class="p-4">
+                <ol class="list-decimal ml-5 space-y-3">
+                    <li><strong>Demographic Trends:</strong> Obesity rates have increased by 11.3% over the past decade, with significant disparities across socioeconomic groups (42.7% in low-income vs 28.9% in high-income populations).</li>
+                    <li><strong>Risk Factors:</strong> Dietary patterns, physical inactivity, genetic predisposition, and environmental factors collectively explained 76.3% of obesity risk in our population. Genetic factors alone contributed approximately 23.5% to obesity risk.</li>
+                    <li><strong>Intervention Efficacy:</strong> Combined interventions (diet + exercise + behavioral therapy) achieved 15.2% weight loss at 12 months compared to 5.7% for single-approach interventions, with significantly higher long-term maintenance rates (68% vs 23%).</li>
+                    <li><strong>Regional Variation:</strong> Significant geographic disparities exist in obesity prevalence, ranging from 25.3% to 39.7% across regions, strongly correlated with food environment indices and walkability scores.</li>
+                    <li><strong>Predictive Modeling:</strong> XGBoost algorithm achieved 89.6% AUC in predicting obesity risk, with dietary patterns, physical activity level, family history, and socioeconomic status being the strongest predictors.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Conclusions Section -->
+        <div class="card mt-6">
+            <div class="card-header">Conclusions</div>
+            <div class="p-4">
+                <p class="mb-3">Our comprehensive analysis of obesity trends, risk factors, and interventions has yielded several important conclusions:</p>
+                <ul class="list-disc ml-5 space-y-3">
+                    <li>Obesity is a multifactorial condition with significant genetic, environmental, behavioral, and socioeconomic contributors, requiring personalized and comprehensive approaches to prevention and treatment.</li>
+                    <li>The effectiveness of obesity interventions is significantly enhanced when multiple approaches are combined (dietary, physical activity, behavioral, and when appropriate, pharmacological), achieving up to 2.7 times greater weight loss compared to single interventions.</li>
+                    <li>Environmental factors, particularly food environment and built environment characteristics, show strong associations with obesity rates independent of individual-level factors, suggesting the importance of policy and community-level interventions.</li>
+                    <li>Machine learning models, particularly XGBoost, can effectively predict obesity risk with high accuracy, enabling targeted prevention strategies for high-risk individuals before obesity develops.</li>
+                    <li>Even modest weight loss (5-10% of initial weight) is associated with clinically significant improvements in metabolic health, including reduced risk of type 2 diabetes (58%), hypertension (42%), and dyslipidemia (37%).</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Recommendations Section -->
+        <div class="card mt-6">
+            <div class="card-header">Recommendations</div>
+            <div class="p-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-bold text-indigo-800 mb-2">Clinical Recommendations</h3>
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Implement the XGBoost prediction model in primary care settings to identify high-risk individuals for targeted preventive interventions.</li>
+                            <li>Adopt comprehensive treatment approaches that combine dietary modification, physical activity, and behavioral therapy as the standard of care for obesity management.</li>
+                            <li>Consider pharmacotherapy as an adjunct to lifestyle interventions for individuals with BMI ≥30 kg/m² or BMI ≥27 kg/m² with obesity-related complications who have not achieved sufficient weight loss with lifestyle interventions alone.</li>
+                            <li>Develop personalized weight management programs based on genetic risk factors, metabolic profile, and personal preferences to improve adherence and outcomes.</li>
+                            <li>Implement regular screening for obesity and associated risk factors, with increased frequency for high-risk populations.</li>
+                            <li>Focus on long-term weight maintenance strategies after successful weight loss, incorporating ongoing support, monitoring, and adaptive interventions.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-indigo-800 mb-2">Public Health Recommendations</h3>
+                        <ul class="list-disc ml-5 space-y-2">
+                            <li>Develop targeted interventions for high-risk geographic regions identified through spatial analysis of obesity prevalence.</li>
+                            <li>Implement policy measures to improve food environments, particularly in areas with limited access to healthy food options and high density of fast food establishments.</li>
+                            <li>Create initiatives to enhance built environment characteristics associated with lower obesity rates, including improved walkability, access to recreational facilities, and public transportation.</li>
+                            <li>Develop culturally appropriate obesity prevention programs targeting high-risk demographic groups, with particular focus on early intervention for children and adolescents.</li>
+                            <li>Implement workplace wellness programs that incorporate evidence-based strategies for weight management and healthy lifestyle promotion.</li>
+                            <li>Advocate for healthcare policy changes to improve insurance coverage for comprehensive obesity treatment programs, including behavioral therapy and nutritional counseling.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- REFERENCES SECTION - ALWAYS AT THE VERY END -->
+        <div class="references-section">
+            <h2 class="references-header">References</h2>
             <div class="card">
-                <div class="card-header">Key Findings</div>
                 <div class="p-4">
-                    <ol class="list-decimal ml-5 space-y-3">
-                        <li><strong>Demographic Trends:</strong> Obesity rates have increased by 11.3% over the past decade, with significant disparities across socioeconomic groups (42.7% in low-income vs 28.9% in high-income populations).</li>
-                        <li><strong>Risk Factors:</strong> Dietary patterns, physical inactivity, genetic predisposition, and environmental factors collectively explained 76.3% of obesity risk in our population. Genetic factors alone contributed approximately 23.5% to obesity risk.</li>
-                        <li><strong>Intervention Efficacy:</strong> Combined interventions (diet + exercise + behavioral therapy) achieved 15.2% weight loss at 12 months compared to 5.7% for single-approach interventions, with significantly higher long-term maintenance rates (68% vs 23%).</li>
-                        <li><strong>Regional Variation:</strong> Significant geographic disparities exist in obesity prevalence, ranging from 25.3% to 39.7% across regions, strongly correlated with food environment indices and walkability scores.</li>
-                        <li><strong>Predictive Modeling:</strong> XGBoost algorithm achieved 89.6% AUC in predicting obesity risk, with dietary patterns, physical activity level, family history, and socioeconomic status being the strongest predictors.</li>
+                    <ol class="list-decimal ml-5 space-y-2 text-sm">
+                        <li>Centers for Disease Control and Prevention. (2022). Adult Obesity Facts. Retrieved from https://www.cdc.gov/obesity/data/adult.html</li>
+                        <li>World Health Organization. (2021). Obesity and overweight. Retrieved from https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight</li>
+                        <li>Hales, C. M., Carroll, M. D., Fryar, C. D., & Ogden, C. L. (2020). Prevalence of obesity and severe obesity among adults: United States, 2017–2018. NCHS Data Brief, 360, 1-8.</li>
+                        <li>Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 785-794).</li>
+                        <li>Jensen, M. D., et al. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and The Obesity Society. Circulation, 129(25 Suppl 2), S102-S138.</li>
+                        <li>Wadden, T. A., & Bray, G. A. (Eds.). (2019). Handbook of Obesity Treatment (2nd ed.). The Guilford Press.</li>
+                        <li>Wing, R. R., & Phelan, S. (2005). Long-term weight loss maintenance. The American Journal of Clinical Nutrition, 82(1), 222S-225S.</li>
+                        <li>Cawley, J., & Meyerhoefer, C. (2012). The medical care costs of obesity: an instrumental variables approach. Journal of Health Economics, 31(1), 219-230.</li>
+                        <li>Khera, A. V., et al. (2019). Polygenic prediction of weight and obesity trajectories from birth to adulthood. Cell, 177(3), 587-596.e9.</li>
+                        <li>Diabetes Prevention Program Research Group. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England Journal of Medicine, 346(6), 393-403.</li>
                     </ol>
                 </div>
             </div>
-            
-            <!-- Conclusions Section -->
-            <div class="card mt-6">
-                <div class="card-header">Conclusions</div>
-                <div class="p-4">
-                    <p class="mb-3">Our comprehensive analysis of obesity trends, risk factors, and interventions has yielded several important conclusions:</p>
-                    <ul class="list-disc ml-5 space-y-3">
-                        <li>Obesity is a multifactorial condition with significant genetic, environmental, behavioral, and socioeconomic contributors, requiring personalized and comprehensive approaches to prevention and treatment.</li>
-                        <li>The effectiveness of obesity interventions is significantly enhanced when multiple approaches are combined (dietary, physical activity, behavioral, and when appropriate, pharmacological), achieving up to 2.7 times greater weight loss compared to single interventions.</li>
-                        <li>Environmental factors, particularly food environment and built environment characteristics, show strong associations with obesity rates independent of individual-level factors, suggesting the importance of policy and community-level interventions.</li>
-                        <li>Machine learning models, particularly XGBoost, can effectively predict obesity risk with high accuracy, enabling targeted prevention strategies for high-risk individuals before obesity develops.</li>
-                        <li>Even modest weight loss (5-10% of initial weight) is associated with clinically significant improvements in metabolic health, including reduced risk of type 2 diabetes (58%), hypertension (42%), and dyslipidemia (37%).</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Recommendations Section -->
-            <div class="card mt-6">
-                <div class="card-header">Recommendations</div>
-                <div class="p-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 class="font-bold text-indigo-800 mb-2">Clinical Recommendations</h3>
-                            <ul class="list-disc ml-5 space-y-2">
-                                <li>Implement the XGBoost prediction model in primary care settings to identify high-risk individuals for targeted preventive interventions.</li>
-                                <li>Adopt comprehensive treatment approaches that combine dietary modification, physical activity, and behavioral therapy as the standard of care for obesity management.</li>
-                                <li>Consider pharmacotherapy as an adjunct to lifestyle interventions for individuals with BMI ≥30 kg/m² or BMI ≥27 kg/m² with obesity-related complications who have not achieved sufficient weight loss with lifestyle interventions alone.</li>
-                                <li>Develop personalized weight management programs based on genetic risk factors, metabolic profile, and personal preferences to improve adherence and outcomes.</li>
-                                <li>Implement regular
+        </div>
+    </div>
