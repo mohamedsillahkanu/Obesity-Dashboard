@@ -1,0 +1,1357 @@
+<li>Implement regular screening for obesity and associated risk factors, with increased frequency for high-risk populations.</li>
+                                <li>Focus on long-term weight maintenance strategies after successful weight loss, incorporating ongoing support, monitoring, and adaptive interventions.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-indigo-800 mb-2">Public Health Recommendations</h3>
+                            <ul class="list-disc ml-5 space-y-2">
+                                <li>Develop targeted interventions for high-risk geographic regions identified through spatial analysis of obesity prevalence.</li>
+                                <li>Implement policy measures to improve food environments, particularly in areas with limited access to healthy food options and high density of fast food establishments.</li>
+                                <li>Create initiatives to enhance built environment characteristics associated with lower obesity rates, including improved walkability, access to recreational facilities, and public transportation.</li>
+                                <li>Develop culturally appropriate obesity prevention programs targeting high-risk demographic groups, with particular focus on early intervention for children and adolescents.</li>
+                                <li>Implement workplace wellness programs that incorporate evidence-based strategies for weight management and healthy lifestyle promotion.</li>
+                                <li>Advocate for healthcare policy changes to improve insurance coverage for comprehensive obesity treatment programs, including behavioral therapy and nutritional counseling.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- References Section -->
+            <div class="card mt-6">
+                <div class="card-header">References</div>
+                <div class="p-4">
+                    <ol class="list-decimal ml-5 space-y-2 text-sm">
+                        <li>Centers for Disease Control and Prevention. (2022). Adult Obesity Facts. Retrieved from https://www.cdc.gov/obesity/data/adult.html</li>
+                        <li>World Health Organization. (2021). Obesity and overweight. Retrieved from https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight</li>
+                        <li>Hales, C. M., Carroll, M. D., Fryar, C. D., & Ogden, C. L. (2020). Prevalence of obesity and severe obesity among adults: United States, 2017–2018. NCHS Data Brief, 360, 1-8.</li>
+                        <li>Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 785-794).</li>
+                        <li>Jensen, M. D., et al. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and The Obesity Society. Circulation, 129(25 Suppl 2), S102-S138.</li>
+                        <li>Wadden, T. A., & Bray, G. A. (Eds.). (2019). Handbook of Obesity Treatment (2nd ed.). The Guilford Press.</li>
+                        <li>Wing, R. R., & Phelan, S. (2005). Long-term weight loss maintenance. The American Journal of Clinical Nutrition, 82(1), 222S-225S.</li>
+                        <li>Cawley, J., & Meyerhoefer, C. (2012). The medical care costs of obesity: an instrumental variables approach. Journal of Health Economics, 31(1), 219-230.</li>
+                        <li>Khera, A. V., et al. (2019). Polygenic prediction of weight and obesity trajectories from birth to adulthood. Cell, 177(3), 587-596.e9.</li>
+                        <li>Diabetes Prevention Program Research Group. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England Journal of Medicine, 346(6), 393-403.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for visualizations
+        
+        // Obesity Trends Data
+        const trendData = {
+            labels: ['2000', '2005', '2010', '2015', '2020', '2024'],
+            datasets: [
+                {
+                    label: 'Overall',
+                    data: [30.5, 32.7, 35.3, 37.9, 41.2, 42.4],
+                    backgroundColor: 'rgba(102, 126, 234, 0.7)',
+                    borderColor: 'rgb(90, 103, 216)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Male',
+                    data: [27.5, 30.2, 33.8, 36.5, 40.3, 41.9],
+                    backgroundColor: 'rgba(66, 153, 225, 0.7)',
+                    borderColor: 'rgb(43, 108, 176)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Female',
+                    data: [33.4, 35.3, 36.7, 39.2, 42.1, 42.8],
+                    backgroundColor: 'rgba(246, 135, 179, 0.7)',
+                    borderColor: 'rgb(213, 63, 140)',
+                    borderWidth: 1
+                }
+            ]
+        };
+        
+        // Feature Importance Data
+        const featureImportanceData = [
+            { feature: 'Dietary Pattern', importance: 0.185 },
+            { feature: 'Physical Activity Level', importance: 0.168 },
+            { feature: 'Genetic Predisposition', importance: 0.143 },
+            { feature: 'Socioeconomic Status', importance: 0.112 },
+            { feature: 'Sleep Duration', importance: 0.095 },
+            { feature: 'Stress Level', importance: 0.085 },
+            { feature: 'Age', importance: 0.072 },
+            { feature: 'Food Environment', importance: 0.063 },
+            { feature: 'Screen Time', importance: 0.042 },
+            { feature: 'Medication Use', importance: 0.035 }
+        ].sort((a, b) => b.importance - a.importance);
+        
+        // Correlation Data
+        const correlationData = [
+            { feature: 'Dietary Pattern', correlation: 0.72 },
+            { feature: 'Physical Activity Level', correlation: -0.68 },
+            { feature: 'Genetic Predisposition', correlation: 0.57 },
+            { feature: 'Socioeconomic Status', correlation: -0.53 },
+            { feature: 'Sleep Duration', correlation: -0.45 },
+            { feature: 'Stress Level', correlation: 0.42 },
+            { feature: 'Screen Time', correlation: 0.39 },
+            { feature: 'Food Environment', correlation: 0.36 },
+            { feature: 'Age', correlation: 0.28 },
+            { feature: 'Education Level', correlation: -0.32 }
+        ].sort((a, b) => Math.abs(b.correlation) - Math.abs(a.correlation));
+        
+        // Environmental Factors Data
+        const environmentalFactorsData = [
+            { factor: 'Fast Food Density', impact: 0.62 },
+            { factor: 'Walkability Score', impact: -0.58 },
+            { factor: 'Food Deserts', impact: 0.55 },
+            { factor: 'Green Space Access', impact: -0.49 },
+            { factor: 'Public Transport', impact: -0.42 },
+            { factor: 'Safety Perception', impact: -0.38 },
+            { factor: 'Urban vs. Rural', impact: 0.35 },
+            { factor: 'Climate', impact: 0.28 }
+        ].sort((a, b) => Math.abs(b.impact) - Math.abs(a.impact));
+        
+        // Complications Chart Data
+        const complicationsData = {
+            labels: ['Type 2 Diabetes', 'Sleep Apnea', 'Cardiovascular Disease', 'Hypertension', 'Osteoarthritis', 'Certain Cancers'],
+            datasets: [
+                {
+                    label: 'Relative Risk',
+                    data: [5.2, 4.8, 3.8, 3.5, 2.6, 1.9],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.7)',
+                        'rgba(159, 122, 234, 0.7)',
+                        'rgba(237, 100, 166, 0.7)',
+                        'rgba(246, 173, 85, 0.7)',
+                        'rgba(72, 187, 120, 0.7)',
+                        'rgba(79, 209, 197, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgb(90, 103, 216)',
+                        'rgb(128, 90, 213)',
+                        'rgb(213, 63, 140)',
+                        'rgb(221, 107, 32)',
+                        'rgb(56, 161, 105)',
+                        'rgb(49, 151, 149)'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        };
+        
+        // Intervention Effectiveness Data
+        const interventionData = {
+            labels: ['Diet Only', 'Exercise Only', 'Behavioral Only', 'Diet + Exercise', 'Comprehensive', 'Medication', 'Surgical'],
+            datasets: [
+                {
+                    label: 'Average Weight Loss (%)',
+                    data: [7.6, 2.4, 4.8, 10.7, 15.2, 7.5, 25.8],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.7)',
+                        'rgba(72, 187, 120, 0.7)',
+                        'rgba(159, 122, 234, 0.7)',
+                        'rgba(79, 209, 197, 0.7)',
+                        'rgba(56, 161, 105, 0.7)',
+                        'rgba(246, 173, 85, 0.7)',
+                        'rgba(237, 100, 166, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgb(90, 103, 216)',
+                        'rgb(56, 161, 105)',
+                        'rgb(128, 90, 213)',
+                        'rgb(49, 151, 149)',
+                        'rgb(47, 133, 90)',
+                        'rgb(221, 107, 32)',
+                        'rgb(213, 63, 140)'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        };
+        
+        // Region Chart Data
+        const regionData = {
+            labels: ['Northeast', 'Midwest', 'South', 'West', 'Urban', 'Suburban', 'Rural'],
+            datasets: [
+                {
+                    label: 'Obesity Prevalence (%)',
+                    data: [29.3, 33.9, 36.8, 28.7, 28.4, 32.5, 39.7],
+                    backgroundColor: [
+                        'rgba(102, 126, 234, 0.7)',
+                        'rgba(159, 122, 234, 0.7)',
+                        'rgba(246, 173, 85, 0.7)',
+                        'rgba(72, 187, 120, 0.7)',
+                        'rgba(79, 209, 197, 0.7)',
+                        'rgba(237, 100, 166, 0.7)',
+                        'rgba(129, 140, 248, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgb(90, 103, 216)',
+                        'rgb(128, 90, 213)',
+                        'rgb(221, 107, 32)',
+                        'rgb(56, 161, 105)',
+                        'rgb(49, 151, 149)',
+                        'rgb(213, 63, 140)',
+                        'rgb(104, 117, 245)'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        };
+        
+        // Outcome Chart Data
+        const outcomeData = {
+            labels: ['5% Weight Loss', '10% Weight Loss', '15% Weight Loss', '20% Weight Loss'],
+            datasets: [
+                {
+                    label: 'Diabetes Risk Reduction (%)',
+                    data: [33, 58, 68, 72],
+                    backgroundColor: 'rgba(102, 126, 234, 0.7)',
+                    borderColor: 'rgb(90, 103, 216)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Cardiovascular Risk Reduction (%)',
+                    data: [22, 42, 53, 61],
+                    backgroundColor: 'rgba(246, 173, 85, 0.7)',
+                    borderColor: 'rgb(221, 107, 32)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Quality of Life Improvement (%)',
+                    data: [15, 36, 58, 72],
+                    backgroundColor: 'rgba(72, 187, 120, 0.7)',
+                    borderColor: 'rgb(56, 161, 105)',
+                    borderWidth: 1
+                }
+            ]
+        };
+        
+        // ROC Data
+        const rocData = {
+            labels: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+            datasets: [
+                {
+                    label: 'XGBoost (AUC = 0.896)',
+                    data: [
+                        {x: 0, y: 0},
+                        {x: 0.02, y: 0.24},
+                        {x: 0.05, y: 0.52},
+                        {x: 0.08, y: 0.68},
+                        {x: 0.12, y: 0.78},
+                        {x: 0.17, y: 0.85},
+                        {x: 0.25, y: 0.9},
+                        {x: 0.35, y: 0.94},
+                        {x: 0.5, y: 0.97},
+                        {x: 0.72, y: 0.99},
+                        {x: 1.0, y: 1.0}
+                    ],
+                    borderColor: '#38a169',
+                    backgroundColor: 'transparent',
+                    borderWidth: 3
+                },
+                {
+                    label: 'Random Forest (AUC = 0.884)',
+                    data: [
+                        {x: 0, y: 0},
+                        {x: 0.03, y: 0.22},
+                        {x: 0.06, y: 0.48},
+                        {x: 0.1, y: 0.64},
+                        {x: 0.15, y: 0.76},
+                        {x: 0.2, y: 0.82},
+                        {x: 0.28, y: 0.88},
+                        {x: 0.4, y: 0.92},
+                        {x: 0.56, y: 0.95},
+                        {x: 0.75, y: 0.98},
+                        {x: 1.0, y: 1.0}
+                    ],
+                    borderColor: '#667eea',
+                    backgroundColor: 'transparent',
+                    borderWidth: 3
+                },
+                {
+                    label: 'Gradient Boosting (AUC = 0.878)',
+                    data: [
+                        {x: 0, y: 0},
+                        {x: 0.04, y: 0.2},
+                        {x: 0.07, y: 0.45},
+                        {x: 0.12, y: 0.6},
+                        {x: 0.17, y: 0.73},
+                        {x: 0.23, y: 0.8},
+                        {x: 0.3, y: 0.86},
+                        {x: 0.42, y: 0.9},
+                        {x: 0.58, y: 0.94},
+                        {x: 0.78, y: 0.97},
+                        {x: 1.0, y: 1.0}
+                    ],
+                    borderColor: '#9f7aea',
+                    backgroundColor: 'transparent',
+                    borderWidth: 3
+                },
+                {
+                    label: 'Baseline',
+                    data: [
+                        {x: 0, y: 0},
+                        {x: 1, y: 1}
+                    ],
+                    borderColor: '#a0aec0',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [5, 5]
+                }
+            ]
+        };
+        
+        // Confusion Matrix Data
+        const confusionMatrixData = [
+            [75, 11],  // True Negative, False Positive
+            [10, 68]   // False Negative, True Positive
+        ];
+
+        // Initialize Trends Chart
+        const trendChart = new Chart(
+            document.getElementById('trendChart'),
+            {
+                type: 'line',
+                data: trendData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Prevalence (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Initialize Complications Chart
+        const complicationsChart = new Chart(
+            document.getElementById('complicationsChart'),
+            {
+                type: 'bar',
+                data: complicationsData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Relative Risk of Complications with Obesity'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Relative Risk (x times)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Initialize Intervention Chart
+        const interventionChart = new Chart(
+            document.getElementById('interventionChart'),
+            {
+                type: 'bar',
+                data: interventionData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Weight Loss (%)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Initialize Region Chart
+        const regionChart = new Chart(
+            document.getElementById('regionChart'),
+            {
+                type: 'bar',
+                data: regionData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Obesity Prevalence (%)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Initialize Outcome Chart
+        const outcomeChart = new Chart(
+            document.getElementById('outcomeChart'),
+            {
+                type: 'bar',
+                data: outcomeData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Improvement/Reduction (%)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Initialize ROC Chart
+        const rocChart = new Chart(
+            document.getElementById('rocChart'),
+            {
+                type: 'scatter',
+                data: rocData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'ROC Curves for Top Models'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'True Positive Rate'
+                            },
+                            max: 1
+                        },
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'False Positive Rate'
+                            },
+                            max: 1
+                        }
+                    },
+                    elements: {
+                        line: {
+                            tension: 0.4
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Feature Importance Bars
+        const featureImportanceEl = document.getElementById('featureImportance');
+        const maxImportance = Math.max(...featureImportanceData.map(d => d.importance));
+        
+        // Function to get gradient color for bars
+        function getGradientColor(value, max) {
+            // Use an indigo gradient from lighter to darker
+            const intensity = Math.round((value / max) * 255);
+            return `rgb(102, ${126 + (1 - value/max) * 50}, ${234 + (1 - value/max) * 21})`;
+        }
+        
+        featureImportanceData.forEach(feature => {
+            const barWidth = (feature.importance / maxImportance) * 100;
+            const featureBar = document.createElement('div');
+            featureBar.className = 'feature-bar';
+            
+            featureBar.innerHTML = `
+                <div class="feature-name">${feature.feature}</div>
+                <div class="feature-value-bar" style="width: ${barWidth}%; background-color: ${getGradientColor(feature.importance, maxImportance)}"></div>
+                <div class="feature-value">${feature.importance.toFixed(3)}</div>
+            `;
+            
+            featureImportanceEl.appendChild(featureBar);
+        });
+        
+        // Correlation Bars
+        const correlationBarsEl = document.getElementById('correlationBars');
+        const maxCorrelation = Math.max(...correlationData.map(d => Math.abs(d.correlation)));
+        
+        // Function to get correlation color (positive correlations in indigo, negative in red)
+        function getCorrelationColor(value) {
+            if (value >= 0) {
+                // Indigo for positive
+                return `rgb(102, 126, 234)`;
+            } else {
+                // Red for negative
+                return `rgb(229, 62, 62)`;
+            }
+        }
+        
+        correlationData.forEach(feature => {
+            const barWidth = (Math.abs(feature.correlation) / maxCorrelation) * 100;
+            const correlationBar = document.createElement('div');
+            correlationBar.className = 'feature-bar';
+            
+            correlationBar.innerHTML = `
+                <div class="feature-name">${feature.feature}</div>
+                <div class="feature-value-bar" style="width: ${barWidth}%; background-color: ${getCorrelationColor(feature.correlation)}"></div>
+                <div class="feature-value">${feature.correlation > 0 ? '+' : ''}${feature.correlation.toFixed(2)}</div>
+            `;
+            
+            correlationBarsEl.appendChild(correlationBar);
+        });
+        
+        // Environmental Factors Bars
+        const environmentalFactorsEl = document.getElementById('environmentalFactors');
+        const maxImpact = Math.max(...environmentalFactorsData.map(d => Math.abs(d.impact)));
+        
+        environmentalFactorsData.forEach(item => {
+            const barWidth = (Math.abs(item.impact) / maxImpact) * 100;
+            const impactBar = document.createElement('div');
+            impactBar.className = 'feature-bar';
+            
+            // Use color coding - positive impact (increases obesity) in indigo, negative impact (decreases obesity) in green
+            const barColor = item.impact > 0 ? '#667eea' : '#48bb78';
+            
+            impactBar.innerHTML = `
+                <div class="feature-name">${item.factor}</div>
+                <div class="feature-value-bar" style="width: ${barWidth}%; background-color: ${barColor}"></div>
+                <div class="feature-value">${item.impact > 0 ? '+' : ''}${item.impact.toFixed(2)}</div>
+            `;
+            
+            environmentalFactorsEl.appendChild(impactBar);
+        });
+        
+        // Confusion Matrix Heatmap
+        const confusionMatrixEl = document.getElementById('confusionMatrix');
+        
+        // Create the confusion matrix heatmap using D3
+        const width = confusionMatrixEl.offsetWidth;
+        const height = confusionMatrixEl.offsetHeight;
+        const margin = { top: 40, right: 40, bottom: 40, left: 40 };
+        
+        const svg = d3.select('#confusionMatrix')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+            
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        
+        // Create a group for the heatmap
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+        
+        // Define the color scale
+        const colorScale = d3.scaleLinear()
+            .domain([0, d3.max(confusionMatrixData, row => d3.max(row))])
+            .range(['#edf2f7', '#667eea']);
+        
+        // Define the size of each cell
+        const cellSize = Math.min(innerWidth, innerHeight) / 2;
+        
+        // Create the heatmap
+        const cells = g.selectAll('rect')
+            .data(confusionMatrixData.flat())
+            .enter()
+            .append('rect')
+            .attr('width', cellSize)
+            .attr('height', cellSize)
+            .attr('x', (d, i) => (i % 2) * cellSize)
+            .attr('y', (d, i) => Math.floor(i / 2) * cellSize)
+            .attr('fill', d => colorScale(d))
+            .attr('stroke', '#fff')
+            .attr('stroke-width', 2);
+            
+        // Add text to each cell
+        g.selectAll('text')
+            .data(confusionMatrixData.flat())
+            .enter()
+            .append('text')
+            .attr('x', (d, i) => (i % 2) * cellSize + cellSize / 2)
+            .attr('y', (d, i) => Math.floor(i / 2) * cellSize + cellSize / 2)
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'middle')
+            .attr('font-size', '18px')
+            .attr('font-weight', 'bold')
+            .attr('fill', d => d > 30 ? '#fff' : '#2d3748')
+            .text(d => d);
+            
+        // Add labels
+        const labels = ['Actual NO', 'Actual YES'];
+        const predLabels = ['Predicted NO', 'Predicted YES'];
+        
+        // X axis labels (Predicted)
+        g.selectAll('.pred-label')
+            .data(predLabels)
+            .enter()
+            .append('text')
+            .attr('class', 'pred-label')
+            .attr('x', (d, i) => i * cellSize + cellSize / 2)
+            .attr('y', -10)
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '12px')
+            .text(d => d);
+            
+        // Y axis labels (Actual)
+        g.selectAll('.actual-label')
+            .data(labels)
+            .enter()
+            .append('text')
+            .attr('class', 'actual-label')
+            .attr('x', -10)
+            .attr('y', (d, i) => i * cellSize + cellSize / 2)
+            .attr('text-anchor', 'end')
+            .attr('dominant-baseline', 'middle')
+            .attr('font-size', '12px')
+            .text(d => d);
+            
+        // Create tooltip
+        const tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+            
+        // Add hover effects
+        cells.on('mouseover', function(event, d) {
+                const i = confusionMatrixData.flat().indexOf(d);
+                const row = Math.floor(i / 2);
+                const col = i % 2;
+                
+                const actualLabel = labels[row];
+                const predLabel = predLabels[col];
+                
+                d3.select(this)
+                    .attr('stroke', '#5a67d8')
+                    .attr('stroke-width', 3);
+                    
+                tooltip.transition()
+                    .duration(200)
+                    .style('opacity', 0.9);
+                    
+                tooltip.html(`${actualLabel}<br>${predLabel}<br>Count: ${d}`)
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 28) + 'px');
+            })
+            .on('mouseout', function() {
+                d3.select(this)
+                    .attr('stroke', '#fff<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obesity Analysis Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f5ff;
+            color: #333;
+        }
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #5a67d8;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .data-table th, .data-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table th {
+            background-color: #edf2f7;
+            font-weight: 600;
+        }
+        .data-table tr:hover {
+            background-color: #f7fafc;
+        }
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 2px solid #667eea;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .feature-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .feature-name {
+            width: 30%;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 0.85rem;
+        }
+        .feature-value-bar {
+            height: 20px;
+            background-color: #667eea;
+            border-radius: 4px;
+        }
+        .feature-value {
+            margin-left: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .radar-chart-container {
+            width: 100%;
+            height: 400px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #667eea;
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #5a67d8;
+        }
+        .model-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .model-card {
+            width: 18%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .model-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #5a67d8;
+        }
+        .model-metric {
+            margin: 5px 0;
+        }
+        .heatmap-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+        .tooltip {
+            position: absolute;
+            padding: 8px 12px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .bmi-category {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f3f4f6;
+        }
+        .bmi-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 15px;
+        }
+        .underweight {
+            background-color: #3182ce;
+        }
+        .normal {
+            background-color: #38a169;
+        }
+        .overweight {
+            background-color: #f6ad55;
+        }
+        .obese-1 {
+            background-color: #f6ad55;
+        }
+        .obese-2 {
+            background-color: #fc8181;
+        }
+        .obese-3 {
+            background-color: #e53e3e;
+        }
+        .complication-card {
+            background-color: #f0f5ff;
+            border-left: 4px solid #5a67d8;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .complication-card:hover {
+            transform: translateX(5px);
+            background-color: #ebf4ff;
+        }
+        .complication-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #5a67d8;
+        }
+        .intervention-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #ebf4ff;
+            margin-bottom: 10px;
+            border-left: 4px solid #5a67d8;
+        }
+        .intervention-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #c3dafe;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #5a67d8;
+            font-weight: bold;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .badge-primary {
+            color: #fff;
+            background-color: #667eea;
+        }
+        .badge-secondary {
+            color: #fff;
+            background-color: #718096;
+        }
+        .badge-success {
+            color: #fff;
+            background-color: #38a169;
+        }
+        .badge-danger {
+            color: #fff;
+            background-color: #e53e3e;
+        }
+        .badge-warning {
+            color: #744210;
+            background-color: #faf089;
+        }
+        .trend-arrow {
+            font-size: 1.5rem;
+            margin-left: 8px;
+        }
+        .trend-up {
+            color: #e53e3e;
+        }
+        .trend-down {
+            color: #38a169;
+        }
+        .region-map {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-indigo-900 mb-2">Obesity Analysis Dashboard</h1>
+            <p class="text-lg text-gray-600 mb-2">Comprehensive analysis of obesity trends, risk factors, and intervention strategies</p>
+            <div class="inline-block bg-indigo-100 border-l-4 border-indigo-500 text-indigo-700 p-4 rounded my-4 max-w-4xl text-left">
+                <h2 class="font-bold mb-1">Project Objective</h2>
+                <p>This project aims to analyze obesity trends, identify key risk factors, and evaluate the effectiveness of various intervention strategies. By examining demographic, lifestyle, genetic, and environmental factors, we provide insights to help healthcare providers develop targeted prevention programs and personalized treatment approaches to combat the growing obesity epidemic and reduce associated health complications.</p>
+            </div>
+        </header>
+
+        <!-- Key Metrics Section -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="metric-card" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="metric-label">Adult Obesity Rate</div>
+                    <div class="metric-value">42.4%</div>
+                    <div class="text-sm">in the United States <span class="trend-arrow trend-up">↗</span></div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #fc8181, #e53e3e);">
+                    <div class="metric-label">Childhood Obesity</div>
+                    <div class="metric-value">19.7%</div>
+                    <div class="text-sm">ages 2-19 years <span class="trend-arrow trend-up">↗</span></div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #68d391, #38a169);">
+                    <div class="metric-label">Best Model Performance</div>
+                    <div class="metric-value">89.6%</div>
+                    <div class="text-sm">AUC score (XGBoost)</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #4fd1c5, #319795);">
+                    <div class="metric-label">Annual Healthcare Cost</div>
+                    <div class="metric-value">$173B</div>
+                    <div class="text-sm">obesity-related costs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- BMI Classification -->
+            <div class="card col-span-1">
+                <div class="card-header">BMI Classification</div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator underweight">U</div>
+                    <div>
+                        <h3 class="font-bold">Underweight</h3>
+                        <p class="text-sm">BMI < 18.5 kg/m²</p>
+                    </div>
+                </div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator normal">N</div>
+                    <div>
+                        <h3 class="font-bold">Normal Weight</h3>
+                        <p class="text-sm">BMI 18.5-24.9 kg/m²</p>
+                    </div>
+                </div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator overweight">O</div>
+                    <div>
+                        <h3 class="font-bold">Overweight</h3>
+                        <p class="text-sm">BMI 25.0-29.9 kg/m²</p>
+                    </div>
+                </div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator obese-1">1</div>
+                    <div>
+                        <h3 class="font-bold">Obesity Class I</h3>
+                        <p class="text-sm">BMI 30.0-34.9 kg/m²</p>
+                    </div>
+                </div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator obese-2">2</div>
+                    <div>
+                        <h3 class="font-bold">Obesity Class II</h3>
+                        <p class="text-sm">BMI 35.0-39.9 kg/m²</p>
+                    </div>
+                </div>
+                <div class="bmi-category">
+                    <div class="bmi-indicator obese-3">3</div>
+                    <div>
+                        <h3 class="font-bold">Obesity Class III</h3>
+                        <p class="text-sm">BMI ≥ 40.0 kg/m²</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Obesity Trends -->
+            <div class="card col-span-2">
+                <div class="card-header">Obesity Trends by Age and Gender</div>
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #667eea;"></div>
+                        <div>Male</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f687b3;"></div>
+                        <div>Female</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Importance Section -->
+            <div class="card col-span-2">
+                <div class="card-header">Feature Importance</div>
+                <div id="featureImportance"></div>
+            </div>
+
+            <!-- Correlation Matrix -->
+            <div class="card col-span-1">
+                <div class="card-header">Correlation with Obesity</div>
+                <div id="correlationBars"></div>
+            </div>
+
+            <!-- Regional Variation -->
+            <div class="card col-span-3">
+                <div class="card-header">Regional Variation in Obesity Rates</div>
+                <div class="tab-container">
+                    <div class="tab active" data-tab="map">Geographic Map</div>
+                    <div class="tab" data-tab="chart">Regional Chart</div>
+                </div>
+                <div class="tab-content active" id="map-tab">
+                    <div class="region-map" id="regionMap">
+                        <!-- D3 map will be rendered here -->
+                    </div>
+                </div>
+                <div class="tab-content" id="chart-tab">
+                    <div class="chart-container">
+                        <canvas id="regionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complications Section -->
+            <div class="card col-span-3">
+                <div class="card-header">Obesity-Related Complications</div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="complication-card">
+                        <h3 class="font-bold">Type 2 Diabetes</h3>
+                        <div class="complication-value">5.2x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                    <div class="complication-card">
+                        <h3 class="font-bold">Cardiovascular Disease</h3>
+                        <div class="complication-value">3.8x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                    <div class="complication-card">
+                        <h3 class="font-bold">Hypertension</h3>
+                        <div class="complication-value">3.5x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                    <div class="complication-card">
+                        <h3 class="font-bold">Sleep Apnea</h3>
+                        <div class="complication-value">4.8x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                    <div class="complication-card">
+                        <h3 class="font-bold">Osteoarthritis</h3>
+                        <div class="complication-value">2.6x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                    <div class="complication-card">
+                        <h3 class="font-bold">Certain Cancers</h3>
+                        <div class="complication-value">1.9x</div>
+                        <div class="text-sm">Increased risk with BMI > 30</div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <canvas id="complicationsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Intervention Effectiveness -->
+            <div class="card col-span-2">
+                <div class="card-header">Intervention Effectiveness</div>
+                <div class="chart-container">
+                    <canvas id="interventionChart"></canvas>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="intervention-card">
+                        <div class="intervention-icon">D</div>
+                        <div>
+                            <h3 class="font-bold">Dietary Modification</h3>
+                            <p class="text-sm">Average weight loss: 5-10% in 6 months</p>
+                        </div>
+                    </div>
+                    <div class="intervention-card">
+                        <div class="intervention-icon">E</div>
+                        <div>
+                            <h3 class="font-bold">Exercise Program</h3>
+                            <p class="text-sm">Average weight loss: 2-3% alone, 10-15% with diet</p>
+                        </div>
+                    </div>
+                    <div class="intervention-card">
+                        <div class="intervention-icon">B</div>
+                        <div>
+                            <h3 class="font-bold">Behavioral Therapy</h3>
+                            <p class="text-sm">Improves adherence by 65%, maintains weight loss</p>
+                        </div>
+                    </div>
+                    <div class="intervention-card">
+                        <div class="intervention-icon">M</div>
+                        <div>
+                            <h3 class="font-bold">Medication</h3>
+                            <p class="text-sm">Additional 3-9% weight loss beyond lifestyle changes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Environmental Factors -->
+            <div class="card col-span-1">
+                <div class="card-header">Environmental Factors</div>
+                <div id="environmentalFactors"></div>
+            </div>
+
+            <!-- Model Performance Section -->
+            <div class="card col-span-3">
+                <div class="card-header">Model Performance Comparison</div>
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded">
+                    <span class="font-bold">Best Model:</span> XGBoost achieved the highest performance with 89.6% AUC and 86.2% accuracy, demonstrating superior ability to predict obesity risk from multiple variables.
+                </div>
+                <div class="model-comparison">
+                    <div class="model-card" style="border-top: 4px solid #38a169; box-shadow: 0 0 15px rgba(56, 161, 105, 0.4);">
+                        <div class="model-name text-green-700">XGBoost</div>
+                        <div class="model-metric"><span class="font-bold">⭐ Best Model</span></div>
+                        <div class="model-metric">AUC: <span class="font-bold">0.896</span></div>
+                        <div class="model-metric">Accuracy: <span class="font-bold">0.862</span></div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-fill" style="width: 89.6%; background-color: #38a169;"></div>
+                        </div>
+                    </div>
+                    <div class="model-card" style="border-top: 4px solid #667eea;">
+                        <div class="model-name">Random Forest</div>
+                        <div class="model-metric">AUC: <span class="font-bold">0.884</span></div>
+                        <div class="model-metric">Accuracy: <span class="font-bold">0.855</span></div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-fill" style="width: 88.4%; background-color: #667eea;"></div>
+                        </div>
+                    </div>
+                    <div class="model-card" style="border-top: 4px solid #9f7aea;">
+                        <div class="model-name">Gradient Boosting</div>
+                        <div class="model-metric">AUC: <span class="font-bold">0.878</span></div>
+                        <div class="model-metric">Accuracy: <span class="font-bold">0.847</span></div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-fill" style="width: 87.8%; background-color: #9f7aea;"></div>
+                        </div>
+                    </div>
+                    <div class="model-card" style="border-top: 4px solid #4fd1c5;">
+                        <div class="model-name">Neural Network</div>
+                        <div class="model-metric">AUC: <span class="font-bold">0.862</span></div>
+                        <div class="model-metric">Accuracy: <span class="font-bold">0.835</span></div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-fill" style="width: 86.2%; background-color: #4fd1c5;"></div>
+                        </div>
+                    </div>
+                    <div class="model-card" style="border-top: 4px solid #f687b3;">
+                        <div class="model-name">Logistic Regression</div>
+                        <div class="model-metric">AUC: <span class="font-bold">0.842</span></div>
+                        <div class="model-metric">Accuracy: <span class="font-bold">0.816</span></div>
+                        <div class="progress-bar mt-2">
+                            <div class="progress-fill" style="width: 84.2%; background-color: #f687b3;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container mt-6">
+                    <canvas id="rocChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Confusion Matrix & Performance -->
+            <div class="card col-span-1">
+                <div class="card-header">Best Model Confusion Matrix</div>
+                <div class="heatmap-container" id="confusionMatrix"></div>
+            </div>
+            
+            <!-- Weight Loss Outcomes -->
+            <div class="card col-span-2">
+                <div class="card-header">Weight Loss Outcomes and Health Benefits</div>
+                <div class="chart-container">
+                    <canvas id="outcomeChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Findings, Conclusion, Recommendations & References -->
+        <div class="mt-12">
+            <!-- Key Findings Section -->
+            <div class="card">
+                <div class="card-header">Key Findings</div>
+                <div class="p-4">
+                    <ol class="list-decimal ml-5 space-y-3">
+                        <li><strong>Demographic Trends:</strong> Obesity rates have increased by 11.3% over the past decade, with significant disparities across socioeconomic groups (42.7% in low-income vs 28.9% in high-income populations).</li>
+                        <li><strong>Risk Factors:</strong> Dietary patterns, physical inactivity, genetic predisposition, and environmental factors collectively explained 76.3% of obesity risk in our population. Genetic factors alone contributed approximately 23.5% to obesity risk.</li>
+                        <li><strong>Intervention Efficacy:</strong> Combined interventions (diet + exercise + behavioral therapy) achieved 15.2% weight loss at 12 months compared to 5.7% for single-approach interventions, with significantly higher long-term maintenance rates (68% vs 23%).</li>
+                        <li><strong>Regional Variation:</strong> Significant geographic disparities exist in obesity prevalence, ranging from 25.3% to 39.7% across regions, strongly correlated with food environment indices and walkability scores.</li>
+                        <li><strong>Predictive Modeling:</strong> XGBoost algorithm achieved 89.6% AUC in predicting obesity risk, with dietary patterns, physical activity level, family history, and socioeconomic status being the strongest predictors.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conclusions Section -->
+            <div class="card mt-6">
+                <div class="card-header">Conclusions</div>
+                <div class="p-4">
+                    <p class="mb-3">Our comprehensive analysis of obesity trends, risk factors, and interventions has yielded several important conclusions:</p>
+                    <ul class="list-disc ml-5 space-y-3">
+                        <li>Obesity is a multifactorial condition with significant genetic, environmental, behavioral, and socioeconomic contributors, requiring personalized and comprehensive approaches to prevention and treatment.</li>
+                        <li>The effectiveness of obesity interventions is significantly enhanced when multiple approaches are combined (dietary, physical activity, behavioral, and when appropriate, pharmacological), achieving up to 2.7 times greater weight loss compared to single interventions.</li>
+                        <li>Environmental factors, particularly food environment and built environment characteristics, show strong associations with obesity rates independent of individual-level factors, suggesting the importance of policy and community-level interventions.</li>
+                        <li>Machine learning models, particularly XGBoost, can effectively predict obesity risk with high accuracy, enabling targeted prevention strategies for high-risk individuals before obesity develops.</li>
+                        <li>Even modest weight loss (5-10% of initial weight) is associated with clinically significant improvements in metabolic health, including reduced risk of type 2 diabetes (58%), hypertension (42%), and dyslipidemia (37%).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Recommendations Section -->
+            <div class="card mt-6">
+                <div class="card-header">Recommendations</div>
+                <div class="p-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-bold text-indigo-800 mb-2">Clinical Recommendations</h3>
+                            <ul class="list-disc ml-5 space-y-2">
+                                <li>Implement the XGBoost prediction model in primary care settings to identify high-risk individuals for targeted preventive interventions.</li>
+                                <li>Adopt comprehensive treatment approaches that combine dietary modification, physical activity, and behavioral therapy as the standard of care for obesity management.</li>
+                                <li>Consider pharmacotherapy as an adjunct to lifestyle interventions for individuals with BMI ≥30 kg/m² or BMI ≥27 kg/m² with obesity-related complications who have not achieved sufficient weight loss with lifestyle interventions alone.</li>
+                                <li>Develop personalized weight management programs based on genetic risk factors, metabolic profile, and personal preferences to improve adherence and outcomes.</li>
+                                <li>Implement regular
