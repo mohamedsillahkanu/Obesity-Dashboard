@@ -651,7 +651,115 @@
                     .style('opacity', 0.9);
                     
                 tooltip.html(`${actualLabel}<br>${predLabel}<br>Count: ${d}`)
-                    .style('left', (event.pageX + 10) + <!DOCTYPE html>
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 28) + 'px');
+            })
+            .on('mouseout', function() {
+                d3.select(this)
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 2);
+                    
+                tooltip.transition()
+                    .duration(500)
+                    .style('opacity', 0);
+            });
+            
+        // Simple US Map for Region Visualization
+        const regionMapEl = document.getElementById('regionMap');
+        
+        // Create a simplified US region map
+        const mapWidth = regionMapEl.offsetWidth;
+        const mapHeight = regionMapEl.offsetHeight;
+        const mapSvg = d3.select('#regionMap')
+            .append('svg')
+            .attr('width', mapWidth)
+            .attr('height', mapHeight);
+            
+        // Define regions and their obesity rates
+        const regions = [
+            { name: 'Northeast', rate: 29.3, x: mapWidth * 0.75, y: mapHeight * 0.25, radius: 50 },
+            { name: 'Midwest', rate: 33.9, x: mapWidth * 0.45, y: mapHeight * 0.35, radius: 60 },
+            { name: 'South', rate: 36.8, x: mapWidth * 0.55, y: mapHeight * 0.65, radius: 75 },
+            { name: 'West', rate: 28.7, x: mapWidth * 0.20, y: mapHeight * 0.40, radius: 45 }
+        ];
+        
+        // Color scale for obesity rates
+        const regionColorScale = d3.scaleLinear()
+            .domain([25, 40])  // Min and max obesity rates
+            .range(['#c3dafe', '#5a67d8']);  // Light indigo to dark indigo
+            
+        // Add regions as circles with size proportional to obesity rate
+        mapSvg.selectAll('circle')
+            .data(regions)
+            .enter()
+            .append('circle')
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+            .attr('r', d => d.radius)
+            .attr('fill', d => regionColorScale(d.rate))
+            .attr('stroke', '#ffffff')
+            .attr('stroke-width', 2)
+            .attr('opacity', 0.8);
+            
+        // Add region labels
+        mapSvg.selectAll('text')
+            .data(regions)
+            .enter()
+            .append('text')
+            .attr('x', d => d.x)
+            .attr('y', d => d.y)
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'middle')
+            .attr('font-size', '12px')
+            .attr('font-weight', 'bold')
+            .attr('fill', '#ffffff')
+            .text(d => `${d.name}\n${d.rate}%`);
+            
+        // Add a legend
+        const legendGroup = mapSvg.append('g')
+            .attr('transform', `translate(${mapWidth - 150}, ${mapHeight - 100})`);
+            
+        legendGroup.append('text')
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('font-size', '12px')
+            .attr('font-weight', 'bold')
+            .text('Obesity Rate (%)');
+            
+        const legendValues = [25, 30, 35, 40];
+        
+        legendValues.forEach((value, i) => {
+            legendGroup.append('rect')
+                .attr('x', 0)
+                .attr('y', 20 + i * 20)
+                .attr('width', 15)
+                .attr('height', 15)
+                .attr('fill', regionColorScale(value));
+                
+            legendGroup.append('text')
+                .attr('x', 25)
+                .attr('y', 20 + i * 20 + 12)
+                .attr('font-size', '12px')
+                .text(value + '%');
+        });
+        
+        // Initialize Tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
